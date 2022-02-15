@@ -7,13 +7,13 @@ import com.yigithan.notesapp.entities.Notes
 @Dao
 interface NoteDao {
 
-    @get:Query("SELECT * FROM notes ORDER BY id DESC")
+    @get:Query("SELECT * FROM notes ORDER BY noteId DESC")
     val allNotes: List<Notes>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNote(note: Notes)
+    suspend fun insertNote(note: Notes)
 
     @Delete
-    fun deleteNote(note: Notes)
+    suspend fun deleteNote(note: Notes)
 
 }

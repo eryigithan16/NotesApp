@@ -3,10 +3,11 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
+    id "androidx.navigation.safeargs"
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     viewBinding{
@@ -16,7 +17,7 @@ android {
     defaultConfig {
         applicationId "com.yigithan.notesapp"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -39,6 +40,7 @@ android {
 }
 
 dependencies {
+    def nav_version = "2.3.0"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -52,10 +54,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //room
-    implementation 'androidx.room:room-runtime:2.2.5'
-    //kapt 'androidx.room:room-compiler:2.2.5'
-    annotationProcessor "androidx.room:room-compiler:2.2.5"
-    implementation 'androidx.room:room-ktx:2.2.1'
+    implementation 'androidx.room:room-runtime:2.4.1'
+    kapt 'androidx.room:room-compiler:2.4.1'
+    implementation 'androidx.room:room-ktx:2.4.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
     //recyclerview
     implementation "androidx.recyclerview:recyclerview:1.1.0"
@@ -72,6 +74,10 @@ dependencies {
 
     //coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
 
 }

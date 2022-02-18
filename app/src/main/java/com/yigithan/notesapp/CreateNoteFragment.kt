@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.yigithan.notesapp.database.NotesDatabase
 import com.yigithan.notesapp.entities.Notes
 import kotlinx.android.synthetic.main.fragment_create_note.*
@@ -53,7 +55,7 @@ class CreateNoteFragment : BaseFragment() {
         }
 
         imgBack.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
+            findNavController().popBackStack()
         }
     }
 

@@ -5,25 +5,35 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.yigithan.notesapp.dao.NoteDao
-import com.yigithan.notesapp.entities.Notes
+import com.yigithan.notesapp.Model.Notes
 
 @Database(entities = [Notes::class],version = 1,exportSchema = false)
 abstract class NotesDatabase:RoomDatabase() {
 
+    abstract fun noteDao():NoteDao
+
     companion object{
+        @Volatile
         var notesDatabase:NotesDatabase? = null
 
         @Synchronized
         fun getDatabase(context: Context): NotesDatabase{
-            if(notesDatabase == null){
-                notesDatabase = Room.databaseBuilder(context
-                , NotesDatabase::class.java
-                ,"notes.db").build()
+            val tempInstance = notesDatabase
+
+            if(tempInstance != null){
+                return tempInstance
             }
-            return notesDatabase!!
+            synchronized(this){
+                val roomDatabaseInstance =
+                    Room.databaseBuilder(
+                        context,
+                        NotesDatabase::class.java,
+                        "Notes"
+                    ).allowMainThreadQueries().build()
+                notesDatabase = roomDatabaseInstance
+                return roomDatabaseInstance
+            }
         }
     }
-
-    abstract fun noteDao():NoteDao
 
 }

@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_back"
-        app:tint="@color/colorIcons" />
+        app:tint="@color/colorWhite" />
     <ImageView
         android:id="@+id/imgDelete"
         android:layout_width="@dimen/_23sdp"
@@ -31,7 +31,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_delete"
-        app:tint="@color/colorIcons"
+        app:tint="@color/colorWhite"
+        android:visibility="invisible"
         />
 
     <ImageView
@@ -41,11 +42,11 @@
         android:layout_margin="@dimen/_25sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/background_add_button"
+        android:background="@drawable/background_button"
         android:padding="@dimen/_5sdp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_tick"
-        app:tint="@color/colorSearchIcon" />
+        app:tint="@color/colorWhite" />
 
     <EditText
         android:id="@+id/etNoteTitle"
@@ -99,10 +100,11 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+            android:id="@+id/colorSubtitle"
             android:layout_width="@dimen/_5sdp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/_5sdp"
-            android:background="@color/colorRed"/>
+            android:background="@color/colorGreen"/>
         <EditText
             android:id="@+id/etNoteSubtitle"
             android:layout_width="match_parent"
@@ -132,10 +134,10 @@
         android:layout_marginStart="@dimen/_18sdp">
 
         <ImageView
-            android:id="@+id/pRed"
+            android:id="@+id/pGreen"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
-            android:background="@drawable/red_dot"/>
+            android:background="@drawable/green_dot"/>
         <ImageView
             android:id="@+id/pYellow"
             android:layout_width="@dimen/_20sdp"
@@ -143,11 +145,11 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:background="@drawable/yellow_dot"/>
         <ImageView
-            android:id="@+id/pGreen"
+            android:id="@+id/pRed"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_marginStart="@dimen/_20sdp"
-            android:background="@drawable/green_dot"/>
+            android:background="@drawable/red_dot"/>
 
     </LinearLayout>
 
